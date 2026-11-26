@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Premium Login interface</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style2.css"
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style2.css">
 </head>
 <body>
 
@@ -17,18 +19,18 @@
             <div class="glass-circle front">
                 <div class="accent-ring"></div>
 
-                <form class="login-form">
+                <form class="login-form" id="loginForm">
                     <h1>Login</h1>
                     <div class="subtitle">Sign in to your account</div>
 
                     <div class="input-box">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Username" autocomplete="off">
+                        <input type="text" placeholder="Username" autocomplete="off" required>
                     </div>
 
                     <div class="input-box">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Password" autocomplete="off">
+                        <input type="password" placeholder="Password" autocomplete="off" required>
                     </div>
 
                     <div class="forgot">
@@ -36,12 +38,12 @@
                             <div class="switch" id="rememberSwitch"></div>
                             Remember me
                         </div>
-                        <a href="#">Forgot password?</a>
+                        <a href="javascript:void(0)">Forgot password?</a>
                     </div>
 
-                    <button type="button">Sign In</button>
+                    <button type="submit">Sign In</button>
 
-                    <div class="signup-text">Don't have an account? <a id="toSignup">Sign up</a></div>
+                    <div class="signup-text">Don't have an account? <a href="javascript:void(0)" id="toSignup">Sign up</a></div>
                 </form>
             </div>
 
@@ -49,28 +51,28 @@
             <div class="glass-circle back">
                 <div class="accent-ring"></div>
 
-                <form class="login-form">
+                <form class="login-form" id="signupForm">
                     <h1>Sign Up</h1>
                     <div class="subtitle">Create your account</div>
 
                     <div class="input-box">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Full name" autocomplete="off">
+                        <input type="text" placeholder="Full name" autocomplete="off" required>
                     </div>
 
                     <div class="input-box">
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="email" placeholder="Email" autocomplete="off">
+                        <input type="email" placeholder="Email" autocomplete="off" required>
                     </div>
 
                     <div class="input-box" style="margin-bottom: 30px;">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Password" autocomplete="off">
+                        <input type="password" placeholder="Password" autocomplete="off" required>
                     </div>
 
-                    <button type="button">Create Account</button>
+                    <button type="submit">Create Account</button>
 
-                    <div class="signup-text">Already have an account? <a id="toLogin">Login</a></div>
+                    <div class="signup-text">Already have an account? <a href="javascript:void(0)" id="toLogin">Login</a></div>
                 </form>
             </div>
 
@@ -84,11 +86,23 @@
     });
 
     const scene = document.getElementById('flipScene');
-    document.getElementById('toSignup').addEventListener('click', function () {
+    document.getElementById('toSignup').addEventListener('click', function (e) {
+        e.preventDefault();
         scene.classList.add('flipped');
     });
-    document.getElementById('toLogin').addEventListener('click', function () {
+    document.getElementById('toLogin').addEventListener('click', function (e) {
+        e.preventDefault();
         scene.classList.remove('flipped');
+    });
+
+    // Form submit handlers
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert('Login successful!');
+    });
+    document.getElementById('signupForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert('Account created successfully!');
     });
 </script>
 

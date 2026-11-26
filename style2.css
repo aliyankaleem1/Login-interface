@@ -1,5 +1,3 @@
-
-
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +14,9 @@ body {
     justify-content: center;
     align-items: center;
     background: peachpuff;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 20px 0;
 }
 
 /* =========================
@@ -80,10 +80,17 @@ body {
     transform: rotateY(180deg);
 }
 
-
 /* =========================
-       INNER RING
+       ACCENT & INNER RING
 ========================= */
+
+.accent-ring {
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    border: 1px dashed rgba(161, 15, 15, 0.15);
+    pointer-events: none;
+}
 
 .glass-circle::before {
     content: "";
@@ -96,8 +103,6 @@ body {
         inset -3px -3px 9px rgba(255, 255, 255, 0.7);
     pointer-events: none;
 }
-
-
 
 /* =========================
         LOGIN / SIGNUP FORM
@@ -197,11 +202,10 @@ body {
 .input-box input:focus {
     transform: translateY(-2px);
     box-shadow:
-    inset 3px 3px 6px rgba(120,10,10,.35),
-    inset -3px -3px 6px rgba(212, 55, 55, 0.25);
+        inset 3px 3px 6px rgba(120,10,10,.35),
+        inset -3px -3px 6px rgba(212, 55, 55, 0.25);
 }
 
-.input-box input:focus + i,
 .input-box:focus-within i {
     color: #a10f0f;
 }
@@ -216,7 +220,6 @@ body {
     align-items: center;
     margin-top: -1px;
     margin-bottom: 30px;
-   
 }
 
 .remember {
@@ -275,8 +278,6 @@ body {
 .forgot a:hover {
     color: #a10f0f;
 }
-
-
 
 /* =========================
           BUTTON
